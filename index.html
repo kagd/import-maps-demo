@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import Maps</title>
+    <script type="importmap">
+        {
+          "imports": {
+            "manager": "./assets/manager.js",
+            "worker": "./assets/worker.js"
+          }
+        }
+    </script>
+    <script type="module" src="./assets/index.js"></script>
+</head>
+<body>
+  <h1>Open JS Console</h1>
+
+  <h2>Order of JS loaded</h2>
+  <ol>
+    <li>Manager</li>
+    <li>Worker</li>
+    <li>Sub-worker</li>
+  </ol>
+  
+  <h2>Order of JS Executed</h2>
+  <ol>
+    <li>Manager</li>
+    <li>Sub-worker</li>
+    <li>Worker</li>
+  </ol>
+
+  <p>sub-worker.js is loaded after worker.js but because sub-worker is a statically refenced by worker.js it is executed before the worker.js function.</p>
+</body>
+</html>
